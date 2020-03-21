@@ -18,6 +18,9 @@
 		
 			<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	  
+			<!-- Mockito-->
+			<mockito.version>3.3.0</mockito.version>
+	  	  
 			<!-- ImgLib2 - https://github.com/imglib/imglib2 -->
 			<imglib2.version>4.6.1</imglib2.version>
 
@@ -42,14 +45,11 @@
 			<!-- ImgLib2 Algorithms GPL - https://github.com/imglib/imglib2-algorithm-gpl -->
 			<imglib2-algorithm-gpl.version>0.2.2</imglib2-algorithm-gpl.version>
 
-
-
 			<!-- Commons IO - https://commons.apache.org/proper/commons-io/ -->
 			<commons-io.version>2.5</commons-io.version>
 		
 			<!-- SSJ: Stochastic Simulation in Java -->
 			<ssj.version>3.2.1</ssj.version>
-
 
 
 			<!-- Open Microscopy Environment - https://github.com/openmicroscopy -->
