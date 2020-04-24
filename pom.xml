@@ -51,10 +51,25 @@
 		
 			<!-- Commons IO - https://commons.apache.org/proper/commons-io/ -->
 			<commons-io.version>2.6</commons-io.version>
+			
+			<!-- Commons Lang - http://commons.apache.org/proper/commons-lang/ -->
+			<commons-lang.version>2.6</commons-lang.version>
+			<commons-lang3.version>3.7</commons-lang3.version>
+			
+			<!-- Commons Logging - http://commons.apache.org/proper/commons-logging/ -->
+			<commons-logging.version>1.1.1</commons-logging.version>
+			
+			<!-- Commons Collections - https://commons.apache.org/proper/commons-collections/ -->
+			<commons-collections.version>3.2.2</commons-collections.version>
+			
+			<!-- Commons Math - http://commons.apache.org/proper/commons-math/ -->
+			<commons-math.version>3.6</commons-math.version>
 		
 			<!-- SSJ: Stochastic Simulation in Java -->
 			<ssj.version>3.2.1</ssj.version>
 
+			<!-- COLT - https://dst.lbl.gov/ACSSoftware/colt/ -->
+			<colt.version>1.2.0</colt.version>
 
 			<!-- Open Microscopy Environment - https://github.com/openmicroscopy -->
 
