@@ -87,6 +87,11 @@
 			
 			<ome-specification.version>5.6.3</ome-specification.version>
 			
+			<!-- Sci Java -->
+			
+			<!-- Native Lib Loader - https://github.com/scijava/native-lib-loader -->
+			<native-lib-loader.version>2.3.4</native-lib-loader.version>
+			
 			<!-- Guava - https://github.com/google/guava -->
 			<guava.version>29.0</guava.version>
 
