@@ -87,6 +87,11 @@
 			
 			<ome-specification.version>5.6.3</ome-specification.version>
 			
+			<!-- Sci Java -->
+			
+			<!-- Native Lib Loader - https://github.com/scijava/native-lib-loader -->
+			<native-lib-loader.version>2.3.4</native-lib-loader.version>
+			
 			<!-- Guava - https://github.com/google/guava -->
 			<guava.version>29.0</guava.version>
 
@@ -97,6 +102,9 @@
 			<formats-bsd.version>${bio-formats.version}</formats-bsd.version>
 			<formats-gpl.version>${bio-formats.version}</formats-gpl.version>
 
+			<!-- Stream Ex https://github.com/amaembo/streamex -->
+			<streamex.version>0.6.5</streamex.version>
+			
 			<maven.javadoc.skip>false</maven.javadoc.skip>
 			<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
 	</properties>
