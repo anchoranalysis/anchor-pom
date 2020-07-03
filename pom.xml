@@ -105,6 +105,9 @@
 			<!-- Stream Ex https://github.com/amaembo/streamex -->
 			<streamex.version>0.6.5</streamex.version>
 			
+			<!-- Lombok https://projectlombok.org/setup/maven -->
+			<lombok.version>1.8.12</lombok.version>
+			
 			<maven.javadoc.skip>false</maven.javadoc.skip>
 			<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
 	</properties>
