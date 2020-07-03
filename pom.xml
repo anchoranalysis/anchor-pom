@@ -94,6 +94,9 @@
 			
 			<!-- Guava - https://github.com/google/guava -->
 			<guava.version>29.0</guava.version>
+			
+			<!-- JUnit 4 - https://junit.org/junit4/ -->
+			<junit.version>4.13</junit.version>
 
 			<!-- Bio-Formats - https://github.com/openmicroscopy/bioformats -->
 			<bio-formats.version>6.4.0</bio-formats.version>
@@ -106,7 +109,7 @@
 			<streamex.version>0.6.5</streamex.version>
 			
 			<!-- Lombok https://projectlombok.org/setup/maven -->
-			<lombok.version>1.8.12</lombok.version>
+			<lombok.version>1.18.12</lombok.version>
 			
 			<maven.javadoc.skip>false</maven.javadoc.skip>
 			<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
