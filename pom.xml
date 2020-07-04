@@ -111,7 +111,7 @@
 			<!-- Lombok https://projectlombok.org/setup/maven -->
 			<lombok.version>1.18.12</lombok.version>
 			
-			<delombok.output>delombok</delombok.output>
+			<delombok.output>${project.build.directory}/delombok</delombok.output>
 			<maven.javadoc.skip>false</maven.javadoc.skip>
 			<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
 	</properties>
@@ -244,7 +244,7 @@
 				</plugin>
 				
 
-				<!-- attachs source -->
+				<!-- attaches source -->
 				<plugin>
 				  <groupId>org.apache.maven.plugins</groupId>
 				  <artifactId>maven-source-plugin</artifactId>
@@ -325,6 +325,38 @@
 				</configuration>
 			</plugin>
 			
+			<!-- A workaround for an error caused in Eclipse by the delombok execution goal 
+			See post on https://github.com/rzwitserloot/lombok/issues/925
+			-->
+			 <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+
+                            <pluginExecutions>
+                                <pluginExecution>
+
+                                    <pluginExecutionFilter>
+                                        <groupId>org.projectlombok</groupId>
+                                        <artifactId>lombok-maven-plugin</artifactId>
+                                        <versionRange>[1,)</versionRange>
+                                        <goals>
+                                            <goal>delombok</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore />
+                                    </action>
+                                </pluginExecution>
+
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+				
+				
 			</plugins>
 		</pluginManagement>
 		
