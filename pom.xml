@@ -94,6 +94,9 @@
 			
 			<!-- Guava - https://github.com/google/guava -->
 			<guava.version>29.0</guava.version>
+			
+			<!-- JUnit 4 - https://junit.org/junit4/ -->
+			<junit.version>4.13</junit.version>
 
 			<!-- Bio-Formats - https://github.com/openmicroscopy/bioformats -->
 			<bio-formats.version>6.4.0</bio-formats.version>
@@ -105,6 +108,10 @@
 			<!-- Stream Ex https://github.com/amaembo/streamex -->
 			<streamex.version>0.6.5</streamex.version>
 			
+			<!-- Lombok https://projectlombok.org/setup/maven -->
+			<lombok.version>1.18.12</lombok.version>
+			
+			<delombok.output>${project.build.directory}/delombok</delombok.output>
 			<maven.javadoc.skip>false</maven.javadoc.skip>
 			<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
 	</properties>
@@ -121,16 +128,13 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9</version>
-				<reportSets>
-					<reportSet>
-						<id>aggregate</id>
-						<reports>
-							<report>aggregate</report>
-						</reports>
-					</reportSet>
-				</reportSets>
+				<version>3.2.0</version>
+		        
 				<configuration>
+				<!-- Use the delomboked output as the base for the javadocs -->
+        			<sourcepath>${delombok.output}</sourcepath>
+					<source>1.8</source>
+					<detectJavaApiLink>false</detectJavaApiLink>
 				<!-- Here you can add special configurations for your javadoc, if needed -->
 				
 					<!--  Disable the lint as it's very over-sensitive -->
@@ -193,6 +197,28 @@
 				  </execution>
 				</executions>
 		      </plugin>
+		      
+		       <plugin>
+			    <groupId>org.projectlombok</groupId>
+			    <artifactId>lombok-maven-plugin</artifactId>
+			    <version>1.18.12.0</version>
+			    <configuration>
+			        <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+			        <outputDirectory>${delombok.output}</outputDirectory>
+			        <addOutputDirectory>false</addOutputDirectory>
+			    </configuration>
+			    <executions>
+			        <execution>
+			            <!-- Generate delomboked code -->
+			            <phase>generate-sources</phase>
+			            <goals>
+			                <goal>delombok</goal>
+			            </goals>
+			        </execution>
+					
+			    </executions>
+			</plugin>
+		      
 					
 		</plugins>
 		
@@ -218,7 +244,7 @@
 				</plugin>
 				
 
-				<!-- attachs source -->
+				<!-- attaches source -->
 				<plugin>
 				  <groupId>org.apache.maven.plugins</groupId>
 				  <artifactId>maven-source-plugin</artifactId>
@@ -267,6 +293,70 @@
 					  </systemProperties>
 					</configuration>
 		      </plugin>
+		      
+		     
+		      
+		      <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.2.0</version>
+				<!-- <reportSets>
+					<reportSet>
+						<id>aggregate</id>
+						<reports>
+							<report>aggregate</report>
+						</reports>
+					</reportSet>
+				</reportSets>-->
+				
+				
+				<configuration>
+				 	<!-- Use the delomboked output as the base for the javadocs -->
+        			<sourcepath>${delombok.output}</sourcepath>
+					<source>1.8</source>
+					<detectJavaApiLink>false</detectJavaApiLink>
+			        <noqualifier>org.anchoranalysis.*:java.lang:java.io</noqualifier>
+			        <links>
+			            <link>https://www.anchoranalysis.org/developer_guide_repositories_overview.html</link>
+			        </links>
+				
+					<!--  Disable the lint as it's very over-sensitive -->
+					<additionalparam>-Xdoclint:none</additionalparam>
+				</configuration>
+			</plugin>
+			
+			<!-- A workaround for an error caused in Eclipse by the delombok execution goal 
+			See post on https://github.com/rzwitserloot/lombok/issues/925
+			-->
+			 <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+
+                            <pluginExecutions>
+                                <pluginExecution>
+
+                                    <pluginExecutionFilter>
+                                        <groupId>org.projectlombok</groupId>
+                                        <artifactId>lombok-maven-plugin</artifactId>
+                                        <versionRange>[1,)</versionRange>
+                                        <goals>
+                                            <goal>delombok</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore />
+                                    </action>
+                                </pluginExecution>
+
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+				
+				
 			</plugins>
 		</pluginManagement>
 		
