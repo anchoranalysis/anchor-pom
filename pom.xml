@@ -114,6 +114,8 @@
 			<delombok.output>${project.build.directory}/delombok</delombok.output>
 			<maven.javadoc.skip>false</maven.javadoc.skip>
 			<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
+			
+			<license-maven-plugin.version>2.0.0</license-maven-plugin.version>
 	</properties>
   
 	<scm>
@@ -177,7 +179,7 @@
 			  <plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>license-maven-plugin</artifactId>
-				<version>2.0.0</version>
+				<version>${license-maven-plugin.version}</version>
 				<configuration>
 				  <verbose>false</verbose>
 				  <licenseName>mit</licenseName>
