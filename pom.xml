@@ -111,6 +111,9 @@
 			<!-- Lombok https://projectlombok.org/setup/maven -->
 			<lombok.version>1.18.12</lombok.version>
 			
+			<!-- vavr https://www.vavr.io/ -->
+			<vavr.version>0.10.3</vavr.version>
+			
 			<delombok.output>${project.build.directory}/delombok</delombok.output>
 			<maven.javadoc.skip>false</maven.javadoc.skip>
 			<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
