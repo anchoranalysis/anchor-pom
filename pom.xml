@@ -119,6 +119,9 @@
 			<maven.javadoc.failOnError>true</maven.javadoc.failOnError>
 			
 			<license-maven-plugin.version>2.0.0</license-maven-plugin.version>
+			
+			<!-- https://github.com/path-pattern-finder -->
+			<path-pattern-finder.version>1.4.4-SNAPSHOT</path-pattern-finder.version>
 	</properties>
   
 	<scm>
