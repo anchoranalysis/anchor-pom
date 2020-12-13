@@ -96,7 +96,7 @@
 			<guava.version>29.0</guava.version>
 			
 			<!-- JUnit 4 - https://junit.org/junit4/ -->
-			<junit.version>4.13</junit.version>
+			<junit.version>4.13.1</junit.version>
 
 			<!-- Bio-Formats - https://github.com/openmicroscopy/bioformats -->
 			<bio-formats.version>6.4.0</bio-formats.version>
