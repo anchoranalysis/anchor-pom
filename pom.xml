@@ -96,7 +96,7 @@
 			<guava.version>29.0</guava.version>
 			
 			<!-- JUnit 4 - https://junit.org/junit4/ -->
-			<junit.version>4.13</junit.version>
+			<junit.version>4.13.1</junit.version>
 
 			<!-- Bio-Formats - https://github.com/openmicroscopy/bioformats -->
 			<bio-formats.version>6.4.0</bio-formats.version>
@@ -111,11 +111,17 @@
 			<!-- Lombok https://projectlombok.org/setup/maven -->
 			<lombok.version>1.18.12</lombok.version>
 			
+			<!-- vavr https://www.vavr.io/ -->
+			<vavr.version>0.10.3</vavr.version>
+			
 			<delombok.output>${project.build.directory}/delombok</delombok.output>
 			<maven.javadoc.skip>false</maven.javadoc.skip>
-			<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
+			<maven.javadoc.failOnError>true</maven.javadoc.failOnError>
 			
 			<license-maven-plugin.version>2.0.0</license-maven-plugin.version>
+			
+			<!-- https://github.com/path-pattern-finder -->
+			<path-pattern-finder.version>1.4.4</path-pattern-finder.version>
 	</properties>
   
 	<scm>
@@ -131,18 +137,45 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>3.2.0</version>
-		        
 				<configuration>
-				<!-- Use the delomboked output as the base for the javadocs -->
         			<sourcepath>${delombok.output}</sourcepath>
 					<source>1.8</source>
-					<detectJavaApiLink>false</detectJavaApiLink>
-				<!-- Here you can add special configurations for your javadoc, if needed -->
-				
-					<!--  Disable the lint as it's very over-sensitive -->
-					<additionalparam>-Xdoclint:none</additionalparam>
+					<detectJavaApiLink>true</detectJavaApiLink>
+					<noqualifier>org.anchoranalysis.*:java.lang:java.io</noqualifier>
+				<reportSets>
+						  <reportSet>
+							<id>aggregate</id>
+						<inherited>false</inherited>
+							<reports>
+							  <report>aggregate</report>
+							</reports>
+						  </reportSet>
+						  <reportSet>
+							<id>default</id>
+							<reports>
+							  <report>aggregate</report>
+							</reports>
+						  </reportSet>
+						</reportSets>
+						
+						<skip>false</skip>
+        
 				</configuration>
+				
 			</plugin>
+			
+			
+		   <plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-project-info-reports-plugin</artifactId>
+			  <version>2.9</version>
+			  <configuration>
+				<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+				<skip>false</skip>
+			  </configuration>
+					  
+			</plugin>
+	
 		</plugins>
 	</reporting>
   
@@ -165,7 +198,7 @@
 		<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
-				<version>3.3</version>
+				<version>3.9.1</version>
 				<configuration>
 				</configuration>
 			</plugin>	
@@ -209,7 +242,6 @@
 			        <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
 			        <outputDirectory>${delombok.output}</outputDirectory>
 			        <addOutputDirectory>false</addOutputDirectory>
-					
 			    </configuration>
 			    <executions>
 			        <execution>
@@ -338,11 +370,30 @@
 		      </plugin>
 		      
 		     
-		      
+		      <!-- Second javadoc plugin definition -->
 		      <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>3.2.0</version>
+    <executions>
+            <execution>
+                    <id>attach-javadocs</id>
+                    <goals>
+                            <goal>aggregate</goal>
+                    </goals>
+            </execution>
+			          <execution>
+            <id>aggregate</id>
+            <goals>
+              <goal>aggregate</goal>
+            </goals>
+            <phase>site</phase>
+            <configuration>
+              <!-- Specific configuration for the aggregate report -->
+              ...
+            </configuration>
+          </execution>
+    </executions>				
 				<!-- <reportSets>
 					<reportSet>
 						<id>aggregate</id>
@@ -351,20 +402,22 @@
 						</reports>
 					</reportSet>
 				</reportSets>-->
-				
+
 				
 				<configuration>
 				 	<!-- Use the delomboked output as the base for the javadocs -->
         			<sourcepath>${delombok.output}</sourcepath>
 					<source>1.8</source>
-					<detectJavaApiLink>false</detectJavaApiLink>
+					<detectJavaApiLink>true</detectJavaApiLink>
 			        <noqualifier>org.anchoranalysis.*:java.lang:java.io</noqualifier>
-			        <links>
+<!--			        <links>
 			            <link>https://www.anchoranalysis.org/developer_guide_repositories_overview.html</link>
-			        </links>
+			        </links>-->
+				
+					<skip>false</skip>
 				
 					<!--  Disable the lint as it's very over-sensitive -->
-					<additionalparam>-Xdoclint:none</additionalparam>
+					<!--<additionalparam>-Xdoclint:none</additionalparam>-->
 				</configuration>
 			</plugin>
 			
@@ -402,6 +455,70 @@
 				
 			</plugins>
 		</pluginManagement>
-		
+				
 	</build>
+
+	<dependencyManagement>
+		<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>	
+		</dependencies>
+	</dependencyManagement>
+	
+    <dependencies>
+        <dependency>
+		  <groupId>junit</groupId>
+		  <artifactId>junit</artifactId>
+		  <version>${junit.version}</version>
+		  <scope>test</scope>
+	      <optional>true</optional>
+		</dependency>
+	
+    </dependencies>
+	
+  
+  <repositories>
+    <repository>
+      <id>ome.releases</id>
+      <url>http://artifacts.openmicroscopy.org/artifactory/ome.releases</url>
+    </repository>
+    <repository>
+      <id>ome.snapshots</id>
+      <url>http://artifacts.openmicroscopy.org/artifactory/ome.snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>ome.external</id>
+      <url>http://artifacts.openmicroscopy.org/artifactory/ome.external</url>
+    </repository>
+    <repository>
+      <id>github_path_path_finder</id>
+      <url>https://maven.pkg.github.com/path-pattern-finder/path-pattern-finder</url>
+    </repository>	
+  </repositories>	
+  
+  <pluginRepositories>
+    <pluginRepository>
+      <id>ome.releases</id>
+      <url>http://artifacts.openmicroscopy.org/artifactory/ome.releases</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>ome.snapshots</id>
+      <url>http://artifacts.openmicroscopy.org/artifactory/ome.snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+    <pluginRepository>
+      <id>ome.external</id>
+      <url>http://artifacts.openmicroscopy.org/artifactory/ome.external</url>
+    </pluginRepository>
+  </pluginRepositories>  
+	
 </project>
