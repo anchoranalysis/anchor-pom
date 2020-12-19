@@ -180,14 +180,17 @@
 	</reporting>
   
 	<distributionManagement>
-        <snapshotRepository>
-            <id>anchor-snapshots</id>
-            <url>http://maven.anchoranalysis.org:8081/repository/anchor-snapshots</url>
-        </snapshotRepository>
-		 <repository>
-            <id>anchor-releases</id>
-            <url>http://maven.anchoranalysis.org:8081/repository/anchor-releases</url>
+        <repository>
+            <id>github</id>
+            <name>GitHub</name>
+            <url>https://maven.pkg.github.com/anchoranalysis/anchor-pom/</url>
         </repository>
+	  <snapshotRepository>
+            <id>github</id>
+            <name>GitHub</name>
+            <url>https://maven.pkg.github.com/anchoranalysis/anchor-pom/</url>
+        </snapshotRepository>
+
 	</distributionManagement>
 	
 
