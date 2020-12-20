@@ -1,0 +1,39 @@
+#
+# This workflow will build a Java project with Maven
+#
+# It automatically deploys the anchor-pom to GitHub packages when it is pushed to GitHub.
+#
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+#
+
+name: Java CI with Maven - deploy POM
+
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 8
+    - name: Cache Maven packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+    - name: Create settings.xml for Maven
+      uses: s4u/maven-settings-action@v2.2.0
+    - name: Build with Maven
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: mvn --batch-mode deploy

@@ -17,6 +17,11 @@
 	<properties>
 		
 			<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+			
+			<!-- For connecting to sonarcloud, sonar.projectKey must also be specified for each implementing project. -->
+			 <sonar.organization>anchoranalysis</sonar.organization>
+			 <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+			 <sonar.moduleKey>${project.groupId}:${project.artifactId}</sonar.moduleKey>
 	  
 			<!-- Mockito-->
 			<mockito.version>3.3.0</mockito.version>
@@ -124,12 +129,12 @@
 			<path-pattern-finder.version>1.4.4</path-pattern-finder.version>
 	</properties>
   
-	<scm>
-		<connection>scm:git:ssh://git@bitbucket.org/anchorimageanalysis/anchor-pom.git</connection>
-		<developerConnection>scm:git:ssh://git@bitbucket.org/anchorimageanalysis/anchor-pom.git</developerConnection>
-		<url>https://git@bitbucket.org/anchorimageanalysis/anchor-pom.git</url>
-	  <tag>anchor-pom-0.0.14</tag>
-  </scm>
+	  <scm>
+		<connection>scm:git:git@github.com:anchoranalysis/anchor-pom.git</connection>
+		<developerConnection>scm:git:git@github.com:anchoranalysis/anchor-pom.git</developerConnection>
+		<url>https://github.com/anchoranalysis/anchor-pom</url>
+		<tag>anchor-pom-0.0.14</tag>
+	</scm>
   
 	<reporting>
 		<plugins>
@@ -180,14 +185,17 @@
 	</reporting>
   
 	<distributionManagement>
-        <snapshotRepository>
-            <id>anchor-snapshots</id>
-            <url>http://maven.anchoranalysis.org:8081/repository/anchor-snapshots</url>
-        </snapshotRepository>
-		 <repository>
-            <id>anchor-releases</id>
-            <url>http://maven.anchoranalysis.org:8081/repository/anchor-releases</url>
+        <repository>
+            <id>github</id>
+            <name>GitHub</name>
+            <url>https://maven.pkg.github.com/anchoranalysis/anchor-pom/</url>
         </repository>
+	  <snapshotRepository>
+            <id>github</id>
+            <name>GitHub</name>
+            <url>https://maven.pkg.github.com/anchoranalysis/anchor-pom/</url>
+        </snapshotRepository>
+
 	</distributionManagement>
 	
 
@@ -294,6 +302,28 @@
 			  </configuration>
 			</plugin>
 
+
+			 <!-- To generate code coverage reports that can be send to SonarCloud -->
+			  <plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.6</version>
+				<executions>
+				  <execution>
+					<id>prepare-agent</id>
+					<goals>
+					  <goal>prepare-agent</goal>
+					</goals>
+				  </execution>
+				  <execution>
+					<id>report</id>
+					  <phase>prepare-package</phase>
+					  <goals>
+						<goal>report</goal>
+					</goals>
+				  </execution>
+				</executions>
+			  </plugin>
 
 		</plugins>
 		
@@ -508,13 +538,13 @@
       <id>ome.releases</id>
       <url>http://artifacts.openmicroscopy.org/artifactory/ome.releases</url>
     </pluginRepository>
-    <pluginRepository>
+    <!--<pluginRepository>
       <id>ome.snapshots</id>
       <url>http://artifacts.openmicroscopy.org/artifactory/ome.snapshots</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
-    </pluginRepository>
+    </pluginRepository>-->
     <pluginRepository>
       <id>ome.external</id>
       <url>http://artifacts.openmicroscopy.org/artifactory/ome.external</url>
