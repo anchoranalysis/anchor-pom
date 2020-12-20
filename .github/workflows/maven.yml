@@ -1,7 +1,7 @@
 #
-# This workflow will build a Java project with Maven
+# This workflow will automatically deploy the anchor-pom to GitHub packages when it is pushed to GitHub.
 #
-# It automatically deploys the anchor-pom to GitHub packages when it is pushed to GitHub.
+# It is only triggered on changes to the master branch.
 #
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 #
@@ -10,9 +10,9 @@ name: Java CI with Maven - deploy POM
 
 on:
   push:
-    branches: [ master, dev ]
+    branches: [ master ]
   pull_request:
-    branches: [ master, dev ]
+    branches: [ master ]
 
 jobs:
   build:
