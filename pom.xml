@@ -508,6 +508,14 @@
       <id>github_path_path_finder</id>
       <url>https://maven.pkg.github.com/path-pattern-finder/path-pattern-finder</url>
     </repository>	
+	
+	<!-- This needs to be in the anchor-pom for the aggregate javadocs generation in anchor-javadoc to work properly, for unknown reasons.
+	Otherwise a dependecy-resolution failure occurs with imagej related dependencies. -->
+	<repository>
+			<id>imagej</id>
+			<name>ImageJ repository</name>
+			<url>http://maven.imagej.net/content/groups/public</url>
+		</repository>	
   </repositories>	
 	
 </project>
