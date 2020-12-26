@@ -100,8 +100,8 @@
 			<!-- Guava - https://github.com/google/guava -->
 			<guava.version>29.0</guava.version>
 			
-			<!-- JUnit 4 - https://junit.org/junit4/ -->
-			<junit.version>4.13.1</junit.version>
+			<!-- JUnit- https://junit.org/junit5/ -->
+			<junit.version>5.7.0</junit.version>
 
 			<!-- Bio-Formats - https://github.com/openmicroscopy/bioformats -->
 			<bio-formats.version>6.4.0</bio-formats.version>
@@ -492,12 +492,19 @@
 	</dependencyManagement>
 	
     <dependencies>
+        
         <dependency>
-		  <groupId>junit</groupId>
-		  <artifactId>junit</artifactId>
-		  <version>${junit.version}</version>
-		  <scope>test</scope>
-	      <optional>true</optional>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-engine</artifactId>
+		    <version>${junit.version}</version>
+		    <scope>test</scope>
+		</dependency>
+
+        <dependency>
+		    <groupId>org.junit.vintage</groupId>
+		    <artifactId>junit-vintage-engine</artifactId>
+		    <version>${junit.version}</version>
+		    <scope>test</scope>
 		</dependency>
 	
     </dependencies>
