@@ -126,7 +126,7 @@
 			<license-maven-plugin.version>2.0.0</license-maven-plugin.version>
 			
 			<!-- https://github.com/path-pattern-finder -->
-			<path-pattern-finder.version>1.4.4</path-pattern-finder.version>
+			<path-pattern-finder.version>1.4.5-SNAPSHOT</path-pattern-finder.version>
 	</properties>
   
 	  <scm>
@@ -496,13 +496,6 @@
         <dependency>
 		    <groupId>org.junit.jupiter</groupId>
 		    <artifactId>junit-jupiter-engine</artifactId>
-		    <version>${junit.version}</version>
-		    <scope>test</scope>
-		</dependency>
-
-        <dependency>
-		    <groupId>org.junit.vintage</groupId>
-		    <artifactId>junit-vintage-engine</artifactId>
 		    <version>${junit.version}</version>
 		    <scope>test</scope>
 		</dependency>
