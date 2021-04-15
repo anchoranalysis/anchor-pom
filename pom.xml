@@ -27,7 +27,7 @@
 			<mockito.version>3.3.0</mockito.version>
 	  	  
 			<!-- ImgLib2 - https://github.com/imglib/imglib2 -->
-			<imglib2.version>5.9.0</imglib2.version>
+			<imglib2.version>5.11.1</imglib2.version>
 
 			<!-- ImgLib2 Algorithms - https://github.com/imglib/imglib2-algorithm -->
 			<imglib2-algorithm.version>0.11.2</imglib2-algorithm.version>
@@ -36,26 +36,26 @@
 			<imglib2-ij.version>2.0.0-beta-46</imglib2-ij.version>
 			
 			<!-- ImageJ - https://github.com/imagej/imagej -->
-			<imagej.version>2.0.0-rc-72</imagej.version>
+			<imagej.version>2.2.0</imagej.version>
 
 			<!-- ImageJ 1.x - https://github.com/imagej/ImageJA -->
-			<imagej1.version>1.52t</imagej1.version>
+			<imagej1.version>1.53d</imagej1.version>
 			<ij.version>${imagej1.version}</ij.version>
 
 			<!-- ImageJ 1.x patcher - https://github.com/imagej/ij1-patcher -->
-			<ij1-patcher.version>1.0.1</ij1-patcher.version>
+			<ij1-patcher.version>1.2.1</ij1-patcher.version>
 
 			<!-- ImageJ Common - https://github.com/imagej/imagej-common -->
-			<imagej-common.version>0.31.0</imagej-common.version>
+			<imagej-common.version>0.34.0</imagej-common.version>
 			
 			<!-- ImgLib2 Algorithms GPL - https://github.com/imglib/imglib2-algorithm-gpl -->
-			<imglib2-algorithm-gpl.version>0.2.4</imglib2-algorithm-gpl.version>
+			<imglib2-algorithm-gpl.version>0.2.5</imglib2-algorithm-gpl.version>
 
 			<!-- ImgLib2 Cache - https://github.com/imglib/imglib2-cache -->
-			<imglib2-cache.version>1.0.0-beta-13</imglib2-cache.version>
+			<imglib2-cache.version>1.0.0-beta-16</imglib2-cache.version>
 		
 			<!-- Commons IO - https://commons.apache.org/proper/commons-io/ -->
-			<commons-io.version>2.6</commons-io.version>
+			<commons-io.version>2.7</commons-io.version>
 			
 			<!-- Commons Lang - http://commons.apache.org/proper/commons-lang/ -->
 			<commons-lang.version>2.6</commons-lang.version>
@@ -88,9 +88,7 @@
 			<ome-poi.version>5.3.3</ome-poi.version>
 
 			<!-- OME Model - https://github.com/ome/ome-model -->
-			<ome-xml.version>6.0.1</ome-xml.version>
-			
-			<ome-specification.version>5.6.3</ome-specification.version>
+			<ome-xml.version>6.1.0</ome-xml.version>
 			
 			<!-- Sci Java -->
 			
@@ -104,7 +102,7 @@
 			<junit.version>5.7.0</junit.version>
 
 			<!-- Bio-Formats - https://github.com/openmicroscopy/bioformats -->
-			<bio-formats.version>6.4.0</bio-formats.version>
+			<bio-formats.version>6.6.1</bio-formats.version>
 			<bio-formats_plugins.version>${bio-formats.version}</bio-formats_plugins.version>
 			<formats-api.version>${bio-formats.version}</formats-api.version>
 			<formats-bsd.version>${bio-formats.version}</formats-bsd.version>
@@ -126,7 +124,7 @@
 			<license-maven-plugin.version>2.0.0</license-maven-plugin.version>
 			
 			<!-- https://github.com/path-pattern-finder -->
-			<path-pattern-finder.version>1.4.4</path-pattern-finder.version>
+			<path-pattern-finder.version>1.5</path-pattern-finder.version>
 	</properties>
   
 	  <scm>
@@ -499,13 +497,6 @@
 		    <version>${junit.version}</version>
 		    <scope>test</scope>
 		</dependency>
-
-        <dependency>
-		    <groupId>org.junit.vintage</groupId>
-		    <artifactId>junit-vintage-engine</artifactId>
-		    <version>${junit.version}</version>
-		    <scope>test</scope>
-		</dependency>
 	
     </dependencies>
 	
@@ -521,7 +512,7 @@
 	<repository>
 			<id>imagej</id>
 			<name>ImageJ repository</name>
-			<url>http://maven.imagej.net/content/groups/public</url>
+			<url>https://maven.scijava.org/content/groups/public/</url>
 		</repository>	
   </repositories>	
 	
