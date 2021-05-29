@@ -112,7 +112,7 @@
 			<streamex.version>0.6.5</streamex.version>
 			
 			<!-- Lombok https://projectlombok.org/setup/maven -->
-			<lombok.version>1.18.12</lombok.version>
+			<lombok.version>1.18.20</lombok.version>
 			
 			<!-- vavr https://www.vavr.io/ -->
 			<vavr.version>0.10.3</vavr.version>
@@ -243,7 +243,7 @@
 		       <plugin>
 			    <groupId>org.projectlombok</groupId>
 			    <artifactId>lombok-maven-plugin</artifactId>
-			    <version>1.18.12.0</version>
+			    <version>1.18.20.0</version>
 			    <configuration>
 			        <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
 			        <outputDirectory>${delombok.output}</outputDirectory>
