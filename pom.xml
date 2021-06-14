@@ -124,7 +124,7 @@
 			<license-maven-plugin.version>2.0.0</license-maven-plugin.version>
 			
 			<!-- https://github.com/path-pattern-finder -->
-			<path-pattern-finder.version>1.5</path-pattern-finder.version>
+			<path-pattern-finder.version>1.6</path-pattern-finder.version>
 	</properties>
   
 	  <scm>
@@ -502,10 +502,6 @@
 	
   
   <repositories>
-    <repository>
-      <id>github_path_path_finder</id>
-      <url>https://maven.pkg.github.com/path-pattern-finder/path-pattern-finder</url>
-    </repository>	
 	
 	<!-- This needs to be in the anchor-pom for the aggregate javadocs generation in anchor-javadoc to work properly, for unknown reasons.
 	Otherwise a dependecy-resolution failure occurs with imagej related dependencies. -->
