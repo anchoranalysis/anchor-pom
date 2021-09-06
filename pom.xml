@@ -4,7 +4,7 @@
     <groupId>org.anchoranalysis.anchor</groupId>
     <artifactId>anchor-pom</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.16-SNAPSHOT</version>
+    <version>0.0.17-SNAPSHOT</version>
     <name>Anchor Base POM</name>
     <url>http://www.anchoranalysis.org/</url>
       <inceptionYear>2010</inceptionYear>
@@ -124,14 +124,14 @@
 			<license-maven-plugin.version>2.0.0</license-maven-plugin.version>
 			
 			<!-- https://github.com/path-pattern-finder -->
-			<path-pattern-finder.version>1.5</path-pattern-finder.version>
+			<path-pattern-finder.version>1.6</path-pattern-finder.version>
 	</properties>
   
 	  <scm>
 		<connection>scm:git:git@github.com:anchoranalysis/anchor-pom.git</connection>
 		<developerConnection>scm:git:git@github.com:anchoranalysis/anchor-pom.git</developerConnection>
 		<url>https://github.com/anchoranalysis/anchor-pom</url>
-		<tag>anchor-pom-0.0.14</tag>
+		<tag>anchor-pom-0.0.16</tag>
 	</scm>
   
 	<reporting>
@@ -278,8 +278,8 @@
 					  <include>.gitignore</include>
 					</includes>
 					<!-- define the steps to apply to those files -->
-					<trimTrailingWhitespace/>
-					<endWithNewline/>
+					<trimTrailingWhitespace />
+					<endWithNewline />
 					<indent>
 					  <tabs>true</tabs>
 					  <spacesPerTab>4</spacesPerTab>
@@ -471,7 +471,13 @@
                         </lifecycleMappingMetadata>
                     </configuration>
                 </plugin>
-				
+			
+			<!-- Included to avoid GitHub Actions errors referincing older JARs -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.2.0</version>
+			</plugin>
 				
 			</plugins>
 		</pluginManagement>
@@ -502,10 +508,6 @@
 	
   
   <repositories>
-    <repository>
-      <id>github_path_path_finder</id>
-      <url>https://maven.pkg.github.com/path-pattern-finder/path-pattern-finder</url>
-    </repository>	
 	
 	<!-- This needs to be in the anchor-pom for the aggregate javadocs generation in anchor-javadoc to work properly, for unknown reasons.
 	Otherwise a dependecy-resolution failure occurs with imagej related dependencies. -->
