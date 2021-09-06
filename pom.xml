@@ -4,7 +4,7 @@
     <groupId>org.anchoranalysis.anchor</groupId>
     <artifactId>anchor-pom</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.16-SNAPSHOT</version>
+    <version>0.0.16</version>
     <name>Anchor Base POM</name>
     <url>http://www.anchoranalysis.org/</url>
       <inceptionYear>2010</inceptionYear>
@@ -278,8 +278,8 @@
 					  <include>.gitignore</include>
 					</includes>
 					<!-- define the steps to apply to those files -->
-					<trimTrailingWhitespace/>
-					<endWithNewline/>
+					<trimTrailingWhitespace />
+					<endWithNewline />
 					<indent>
 					  <tabs>true</tabs>
 					  <spacesPerTab>4</spacesPerTab>
