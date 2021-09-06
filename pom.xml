@@ -131,7 +131,7 @@
 		<connection>scm:git:git@github.com:anchoranalysis/anchor-pom.git</connection>
 		<developerConnection>scm:git:git@github.com:anchoranalysis/anchor-pom.git</developerConnection>
 		<url>https://github.com/anchoranalysis/anchor-pom</url>
-		<tag>anchor-pom-0.0.14</tag>
+		<tag>anchor-pom-0.0.16</tag>
 	</scm>
   
 	<reporting>
