@@ -125,6 +125,9 @@
 			
 			<!-- https://github.com/path-pattern-finder -->
 			<path-pattern-finder.version>1.7</path-pattern-finder.version>
+			
+			<!-- ONNX Runtime https://onnxruntime.ai/ -->
+			<onnx-runtime.version>1.9.0</onnx-runtime.version>
 	</properties>
   
 	  <scm>
