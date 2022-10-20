@@ -364,27 +364,7 @@
 				  </executions>
 				</plugin>
 				
-				<plugin>
-			      <groupId>org.apache.maven.plugins</groupId>
-			      <artifactId>maven-jar-plugin</artifactId>
-			      <version>2.6</version>
-			      <configuration>
-			        <archive>
-			          <index>true</index>
-			          <manifest>
-			            <addClasspath>true</addClasspath>
-			          </manifest>
-			        </archive>
-			      </configuration>
-		              <executions>
-				  <execution>
-				    <goals>
-				      <goal>jar</goal>
-				    </goals>
-				  </execution>
-				</executions>
-			    </plugin>
-			
+
 				<!-- We specify a default location of test-data for the modules -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
