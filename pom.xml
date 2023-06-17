@@ -27,35 +27,35 @@
 			<mockito.version>3.3.0</mockito.version>
 	  	  
 			<!-- ImgLib2 - https://github.com/imglib/imglib2 -->
-			<imglib2.version>5.12.0</imglib2.version>
+			<imglib2.version>6.1.0</imglib2.version>
 
 			<!-- ImgLib2 Algorithms - https://github.com/imglib/imglib2-algorithm -->
-			<imglib2-algorithm.version>0.12.0</imglib2-algorithm.version>
+			<imglib2-algorithm.version>0.13.2</imglib2-algorithm.version>
 	  
 			<!-- ImgLib2 IJ - https://github.com/imglib/imglib2-ij -->
-			<imglib2-ij.version>2.0.0-beta-46</imglib2-ij.version>
+			<imglib2-ij.version>2.0.0</imglib2-ij.version>
 			
 			<!-- ImageJ - https://github.com/imagej/imagej -->
-			<imagej.version>2.3.0</imagej.version>
+			<imagej.version>2.13.1</imagej.version>
 
 			<!-- ImageJ 1.x - https://github.com/imagej/ImageJA -->
-			<imagej1.version>1.53f</imagej1.version>
+			<imagej1.version>1.54d</imagej1.version>
 			<ij.version>${imagej1.version}</ij.version>
 
 			<!-- ImageJ 1.x patcher - https://github.com/imagej/ij1-patcher -->
-			<ij1-patcher.version>1.2.1</ij1-patcher.version>
+			<ij1-patcher.version>1.2.6</ij1-patcher.version>
 
 			<!-- ImageJ Common - https://github.com/imagej/imagej-common -->
-			<imagej-common.version>0.34.1</imagej-common.version>
+			<imagej-common.version>2.0.3</imagej-common.version>
 			
 			<!-- ImgLib2 Algorithms GPL - https://github.com/imglib/imglib2-algorithm-gpl -->
-			<imglib2-algorithm-gpl.version>0.3.0</imglib2-algorithm-gpl.version>
+			<imglib2-algorithm-gpl.version>0.13.2</imglib2-algorithm-gpl.version>
 
 			<!-- ImgLib2 Cache - https://github.com/imglib/imglib2-cache -->
-			<imglib2-cache.version>1.0.0-beta-16</imglib2-cache.version>
+			<imglib2-cache.version>1.0.0-beta-17</imglib2-cache.version>
 		
 			<!-- Commons IO - https://commons.apache.org/proper/commons-io/ -->
-			<commons-io.version>2.7</commons-io.version>
+			<commons-io.version>2.11.0</commons-io.version>
 			
 			<!-- Commons Lang - http://commons.apache.org/proper/commons-lang/ -->
 			<commons-lang.version>2.6</commons-lang.version>
@@ -69,9 +69,6 @@
 			
 			<!-- Commons Math - http://commons.apache.org/proper/commons-math/ -->
 			<commons-math3.version>3.6.1</commons-math3.version>
-		
-			<!-- SSJ: Stochastic Simulation in Java -->
-			<ssj.version>3.2.1</ssj.version>
 
 			<!-- COLT - https://dst.lbl.gov/ACSSoftware/colt/ -->
 			<colt.version>1.2.0</colt.version>
@@ -79,16 +76,16 @@
 			<!-- Open Microscopy Environment - https://github.com/openmicroscopy -->
 
 			<!-- OME Common Java - https://github.com/ome/ome-common-java -->
-			<ome-common.version>6.0.7</ome-common.version>
+			<ome-common.version>6.0.16</ome-common.version>
 
 			<!-- Metakit - https://github.com/ome/ome-metakit -->
 			<metakit.version>5.3.3</metakit.version>
 
 			<!-- OME POI - https://github.com/ome/ome-poi -->
-			<ome-poi.version>5.3.4</ome-poi.version>
+			<ome-poi.version>5.3.5</ome-poi.version>
 
 			<!-- OME Model - https://github.com/ome/ome-model -->
-			<ome-xml.version>6.3.0</ome-xml.version>
+			<ome-xml.version>6.3.3</ome-xml.version>
 			
 			<!-- Sci Java -->
 			
@@ -96,13 +93,13 @@
 			<native-lib-loader.version>2.4.0</native-lib-loader.version>
 			
 			<!-- Guava - https://github.com/google/guava -->
-			<guava.version>29.0</guava.version>
+			<guava.version>31.1-jre</guava.version>
 			
 			<!-- JUnit- https://junit.org/junit5/ -->
 			<junit.version>5.7.0</junit.version>
 
 			<!-- Bio-Formats - https://github.com/openmicroscopy/bioformats -->
-			<bio-formats.version>6.9.1</bio-formats.version>
+			<bio-formats.version>6.13.0</bio-formats.version>
 			<bio-formats_plugins.version>${bio-formats.version}</bio-formats_plugins.version>
 			<formats-api.version>${bio-formats.version}</formats-api.version>
 			<formats-bsd.version>${bio-formats.version}</formats-bsd.version>
@@ -112,10 +109,10 @@
 			<streamex.version>0.6.5</streamex.version>
 			
 			<!-- Lombok https://projectlombok.org/setup/maven -->
-			<lombok.version>1.18.20</lombok.version>
+			<lombok.version>1.18.28</lombok.version>
 			
 			<!-- vavr https://www.vavr.io/ -->
-			<vavr.version>0.10.3</vavr.version>
+			<vavr.version>0.10.4</vavr.version>
 			
 			<delombok.output>${project.build.directory}/delombok</delombok.output>
 			<maven.javadoc.skip>false</maven.javadoc.skip>
@@ -127,7 +124,7 @@
 			<path-pattern-finder.version>1.7.1</path-pattern-finder.version>
 			
 			<!-- ONNX Runtime https://onnxruntime.ai/ -->
-			<onnx-runtime.version>1.9.0</onnx-runtime.version>
+			<onnx-runtime.version>1.15.1</onnx-runtime.version>
 	</properties>
   
 	  <scm>
