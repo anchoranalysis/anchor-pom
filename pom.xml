@@ -49,7 +49,7 @@
 			<imagej-common.version>2.0.3</imagej-common.version>
 			
 			<!-- ImgLib2 Algorithms GPL - https://github.com/imglib/imglib2-algorithm-gpl -->
-			<imglib2-algorithm-gpl.version>0.13.2</imglib2-algorithm-gpl.version>
+			<imglib2-algorithm-gpl.version>0.3.1</imglib2-algorithm-gpl.version>
 
 			<!-- ImgLib2 Cache - https://github.com/imglib/imglib2-cache -->
 			<imglib2-cache.version>1.0.0-beta-17</imglib2-cache.version>
@@ -69,6 +69,9 @@
 			
 			<!-- Commons Math - http://commons.apache.org/proper/commons-math/ -->
 			<commons-math3.version>3.6.1</commons-math3.version>
+
+			<!-- SSJ: Stochastic Simulation in Java -->
+			<ssj.version>3.2.1</ssj.version>
 
 			<!-- COLT - https://dst.lbl.gov/ACSSoftware/colt/ -->
 			<colt.version>1.2.0</colt.version>
@@ -93,10 +96,13 @@
 			<native-lib-loader.version>2.4.0</native-lib-loader.version>
 			
 			<!-- Guava - https://github.com/google/guava -->
-			<guava.version>31.1-jre</guava.version>
+			<guava.version>31.1</guava.version>
 			
 			<!-- JUnit- https://junit.org/junit5/ -->
 			<junit.version>5.7.0</junit.version>
+
+			<!-- XML APIs - https://central.sonatype.com/artifact/xml-apis/xml-apis/2.0.2 -->
+			<xml-apis.version>1.4.01</xml-apis.version>
 
 			<!-- Bio-Formats - https://github.com/openmicroscopy/bioformats -->
 			<bio-formats.version>6.13.0</bio-formats.version>
