@@ -4,7 +4,7 @@
     <groupId>org.anchoranalysis.anchor</groupId>
     <artifactId>anchor-pom</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.3-SNAPSHOT</version>
+    <version>0.2.1-SNAPSHOT</version>
     <name>Anchor Base POM</name>
     <url>http://www.anchoranalysis.org/</url>
       <inceptionYear>2010</inceptionYear>
@@ -12,6 +12,27 @@
 	<name>Owen Feehan, ETH Zurich, University of Zurich, Hoffmann-La Roche</name>
 	<url>http://www.owenfeehan.com</url>
       </organization>
+	  
+	  <description>A parent POM for all other POMs in the Anchor project, to provide reusable constants, plguins and other settings.
+
+		In particular, this ensures identical versions are used for dependencies across the entire Anchor project space.
+	  </description>
+	  
+    <licenses>
+        <license>
+            <name>The MIT License</name>
+            <url>https://raw.githubusercontent.com/ConvertAPI/convertapi-java/master/LICENSE.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>owenfeehan</id>
+            <name>Owen Feehan</name>
+		  <organizationUrl>http://www.owenfeehan.com</organizationUrl>
+        </developer>
+    </developers>
       
 	<!-- Based on https://github.com/scijava/pom-scijava -->
 	<properties>
@@ -201,13 +222,36 @@
         </snapshotRepository>
 
 	</distributionManagement>
-	
 
 	<build>
-	    
 		<plugins>
-			
-		<plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+					<id>sign-artifacts</id>
+					<phase>verify</phase>
+					<goals>
+						<goal>sign</goal>
+					</goals>
+					</execution>
+				</executions>
+			</plugin>
+					
+			<plugin>
+				  <groupId>org.sonatype.central</groupId>
+				  <artifactId>central-publishing-maven-plugin</artifactId>
+				  <version>0.7.0</version>
+				  <extensions>true</extensions>
+				  <configuration>
+					<publishingServerId>central</publishingServerId>
+				  </configuration>
+			</plugin>				
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
 				<version>3.9.1</version>
