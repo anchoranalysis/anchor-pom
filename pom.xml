@@ -13,7 +13,7 @@
 	<url>http://www.owenfeehan.com</url>
       </organization>
 	  
-	  <description>A parent POM for all other POMs in the Anchor project, to provide reusable constants, plguins and other settings.
+	  <description>A parent POM for all other POMs in the Anchor project, to provide reusable constants, plugins and other settings.
 
 		In particular, this ensures identical versions are used for dependencies across the entire Anchor project space.
 	  </description>
@@ -21,7 +21,7 @@
     <licenses>
         <license>
             <name>The MIT License</name>
-            <url>https://raw.githubusercontent.com/ConvertAPI/convertapi-java/master/LICENSE.txt</url>
+            <url>https://github.com/anchoranalysis/anchor-pom/blob/master/LICENSE.txt</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
