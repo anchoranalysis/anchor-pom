@@ -18,7 +18,7 @@
 		In particular, this ensures identical versions are used for dependencies across the entire Anchor project space.
 	  </description>
 	  
-	     <licenses>
+    <licenses>
         <license>
             <name>The MIT License</name>
             <url>https://raw.githubusercontent.com/ConvertAPI/convertapi-java/master/LICENSE.txt</url>
@@ -30,6 +30,7 @@
         <developer>
             <id>owenfeehan</id>
             <name>Owen Feehan</name>
+		  <organizationUrl>http://www.owenfeehan.com</organizationUrl>
         </developer>
     </developers>
       
