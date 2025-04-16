@@ -12,6 +12,26 @@
 	<name>Owen Feehan, ETH Zurich, University of Zurich, Hoffmann-La Roche</name>
 	<url>http://www.owenfeehan.com</url>
       </organization>
+	  
+	  <description>A parent POM for all other POMs in the Anchor project, to provide reusable constants, plguins and other settings.
+
+		In particular, this ensures identical versions are used for dependencies across the entire Anchor project space.
+	  </description>
+	  
+	     <licenses>
+        <license>
+            <name>The MIT License</name>
+            <url>https://raw.githubusercontent.com/ConvertAPI/convertapi-java/master/LICENSE.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>owenfeehan</id>
+            <name>Owen Feehan</name>
+        </developer>
+    </developers>
       
 	<!-- Based on https://github.com/scijava/pom-scijava -->
 	<properties>
