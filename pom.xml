@@ -373,12 +373,12 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>3.0.0-M5</version>
 					<configuration>
-					  <systemProperties>
+					  <systemPropertyVariables>
 					    <property>
 					      <name>test.data.root</name>
 					      <value>${project.basedir}/src/test/resources</value>
 					    </property>
-					  </systemProperties>
+					  </systemPropertyVariables>
 					</configuration>
 		      </plugin>
 		      
@@ -415,14 +415,8 @@
 					<source>1.8</source>
 					<detectJavaApiLink>true</detectJavaApiLink>
 			        <noqualifier>org.anchoranalysis.*:java.lang:java.io</noqualifier>
-<!--			        <links>
-			            <link>https://www.anchoranalysis.org/developer_guide_repositories_overview.html</link>
-			        </links>-->
 				
 					<skip>false</skip>
-				
-					<!--  Disable the lint as it's very over-sensitive -->
-					<!--<additionalparam>-Xdoclint:none</additionalparam>-->
 				</configuration>
 			</plugin>
 			
