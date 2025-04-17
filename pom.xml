@@ -211,32 +211,7 @@
   
 	<build>
 		<plugins>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-gpg-plugin</artifactId>
-				<version>1.5</version>
-				<executions>
-					<execution>
-					<id>sign-artifacts</id>
-					<phase>verify</phase>
-					<goals>
-						<goal>sign</goal>
-					</goals>
-					</execution>
-				</executions>
-			</plugin>
 					
-			<plugin>
-				  <groupId>org.sonatype.central</groupId>
-				  <artifactId>central-publishing-maven-plugin</artifactId>
-				  <version>0.7.0</version>
-				  <extensions>true</extensions>
-				  <configuration>
-					<publishingServerId>central</publishingServerId>
-				  </configuration>
-			</plugin>				
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
@@ -244,12 +219,6 @@
 				<configuration>
 				</configuration>
 			</plugin>	
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>3.0.0-M4</version>
-			  </plugin>
 			  
 			  <plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -532,6 +501,54 @@
 			<name>ImageJ repository</name>
 			<url>https://maven.scijava.org/content/groups/public/</url>
 		</repository>	
-  </repositories>	
+  </repositories>
+  
+  
+	<!-- See https://www.sonatype.com/blog/2010/01/how-to-generate-pgp-signatures-with-maven -->
+	<profiles>
+		<profile>
+			  <id>release-sign-artifacts</id>
+			  <activation>
+		<property>
+				  <name>performRelease</name>
+				  <value>true</value>
+				</property>
+			  </activation>
+			  <build>
+		<plugins>
+		<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+<phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+		  
+		<plugin>
+			  <groupId>org.sonatype.central</groupId>
+			  <artifactId>central-publishing-maven-plugin</artifactId>
+			  <version>0.7.0</version>
+			  <extensions>true</extensions>
+			  <configuration>
+				<publishingServerId>central</publishingServerId>
+			  </configuration>
+		</plugin>				
+
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-release-plugin</artifactId>
+			<version>3.0.0-M4</version>
+		 </plugin>
+			  
+        </plugins>
+      </build>
+    </profile>
+  </profiles>  
 	
 </project>
