@@ -4,7 +4,7 @@
     <groupId>org.anchoranalysis.anchor</groupId>
     <artifactId>anchor-pom</artifactId>
     <packaging>pom</packaging>
-    <version>0.2.3-SNAPSHOT</version>
+    <version>0.2.3</version>
     <name>Anchor Base POM</name>
     <url>http://www.anchoranalysis.org/</url>
       <inceptionYear>2010</inceptionYear>
@@ -158,7 +158,7 @@
 		<connection>scm:git:git@github.com:anchoranalysis/anchor-pom.git</connection>
 		<developerConnection>scm:git:git@github.com:anchoranalysis/anchor-pom.git</developerConnection>
 		<url>https://github.com/anchoranalysis/anchor-pom</url>
-		<tag>anchor-pom-0.0.16</tag>
+		<tag>anchor-pom-0.2.3</tag>
 	</scm>
   
 	<reporting>
