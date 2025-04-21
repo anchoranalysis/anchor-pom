@@ -163,7 +163,7 @@
 	
 	<distributionManagement>
 		<snapshotRepository>
-			<id>mavencentral</id>
+			<id>central</id>
 			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
