@@ -169,7 +169,7 @@
 				<version>3.2.0</version>
 				<configuration>
         			<sourcepath>${delombok.output}</sourcepath>
-					<source>1.8</source>
+					<source>1.17</source>
 					<detectJavaApiLink>true</detectJavaApiLink>
 					<noqualifier>org.anchoranalysis.*:java.lang:java.io</noqualifier>
 				<reportSets>
@@ -297,7 +297,7 @@
 
 				  <!-- apply a specific flavor of google-java-format -->
 				  <googleJavaFormat>
-					<version>1.8</version>
+					<version>1.17</version>
 					<style>AOSP</style>
 				  </googleJavaFormat>
 
@@ -337,8 +337,8 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.8.1</version>
                     <configuration>
-                        <source>1.8</source>
-                        <target>1.8</target>
+                        <source>1.17</source>
+                        <target>1.17</target>
                     </configuration>
                 </plugin>
                 
@@ -414,7 +414,7 @@
 				<configuration>
 				 	<!-- Use the delomboked output as the base for the javadocs -->
         			<sourcepath>${delombok.output}</sourcepath>
-					<source>1.8</source>
+					<source>1.17</source>
 					<detectJavaApiLink>true</detectJavaApiLink>
 			        <noqualifier>org.anchoranalysis.*:java.lang:java.io</noqualifier>
 				
@@ -493,10 +493,24 @@
 	<!-- This needs to be in the anchor-pom for the aggregate javadocs generation in anchor-javadoc to work properly, for unknown reasons.
 	Otherwise a dependecy-resolution failure occurs with imagej related dependencies. -->
 	<repository>
-			<id>imagej</id>
-			<name>ImageJ repository</name>
-			<url>https://maven.scijava.org/content/groups/public/</url>
-		</repository>	
+		<id>imagej</id>
+		<name>ImageJ repository</name>
+		<url>https://maven.scijava.org/content/groups/public/</url>
+	</repository>	
+		
+		
+	<repository>
+		<name>Central Portal Snapshots</name>
+		<id>central-portal-snapshots</id>
+		<url>https://central.sonatype.com/repository/maven-snapshots/</url>
+		<releases>
+		  <enabled>false</enabled>
+		</releases>
+		<snapshots>
+		  <enabled>true</enabled>
+		</snapshots>
+	  </repository>
+  
   </repositories>
   
   
