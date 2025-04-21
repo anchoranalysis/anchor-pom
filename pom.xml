@@ -136,7 +136,7 @@
 			<streamex.version>0.6.5</streamex.version>
 			
 			<!-- Lombok https://projectlombok.org/setup/maven -->
-			<lombok.version>1.18.28</lombok.version>
+			<lombok.version>1.18.38</lombok.version>
 			
 			<!-- vavr https://www.vavr.io/ -->
 			<vavr.version>0.10.4</vavr.version>
@@ -176,7 +176,7 @@
 				<version>3.2.0</version>
 				<configuration>
         			<sourcepath>${delombok.output}</sourcepath>
-					<source>1.17</source>
+					<source>21</source>
 					<detectJavaApiLink>true</detectJavaApiLink>
 					<noqualifier>org.anchoranalysis.*:java.lang:java.io</noqualifier>
 				<reportSets>
@@ -256,6 +256,14 @@
 			    <groupId>org.projectlombok</groupId>
 			    <artifactId>lombok-maven-plugin</artifactId>
 			    <version>1.18.20.0</version>
+				<dependencies>
+				<!-- We need to explicitly force the plugin to use a later lombok version, see https://stackoverflow.com/questions/77983180/unable-to-delombok-invocationtargetexception/77986734 -->
+                    <dependency>
+                        <groupId>org.projectlombok</groupId>
+                        <artifactId>lombok</artifactId>
+                        <version>${lombok.version}</version>
+                    </dependency>
+                </dependencies>
 			    <configuration>
 			        <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
 			        <outputDirectory>${delombok.output}</outputDirectory>
@@ -272,6 +280,38 @@
 					
 			    </executions>
 			</plugin>
+			
+			
+			 <plugin>
+      <groupId>com.cosium.code</groupId>
+      <artifactId>git-code-format-maven-plugin</artifactId>
+      <version>${git-code-format-maven-plugin.version}</version>
+      <executions>
+        <!-- On commit, format the modified files -->
+        <execution>
+          <id>install-formatter-hook</id>
+          <goals>
+            <goal>install-hooks</goal>
+          </goals>
+        </execution>
+        <!-- On Maven verify phase, fail if any file
+        (including unmodified) is badly formatted -->
+        <execution>
+          <id>validate-code-format</id>
+          <goals>
+            <goal>validate-code-format</goal>
+          </goals>
+        </execution>
+      </executions>
+      <dependencies>
+        <!-- Enable https://github.com/google/google-java-format -->
+        <dependency>
+          <groupId>com.cosium.code</groupId>
+          <artifactId>google-java-format</artifactId>
+          <version>${git-code-format-maven-plugin.version}</version>
+        </dependency>
+      </dependencies>
+    </plugin>
 
 
 			<plugin>
@@ -304,7 +344,7 @@
 
 				  <!-- apply a specific flavor of google-java-format -->
 				  <googleJavaFormat>
-					<version>1.17</version>
+					<version>21</version>
 					<style>AOSP</style>
 				  </googleJavaFormat>
 
@@ -344,8 +384,8 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.8.1</version>
                     <configuration>
-                        <source>1.17</source>
-                        <target>1.17</target>
+                        <source>21</source>
+                        <target>21</target>
                     </configuration>
                 </plugin>
                 
@@ -421,7 +461,7 @@
 				<configuration>
 				 	<!-- Use the delomboked output as the base for the javadocs -->
         			<sourcepath>${delombok.output}</sourcepath>
-					<source>1.17</source>
+					<source>21</source>
 					<detectJavaApiLink>true</detectJavaApiLink>
 			        <noqualifier>org.anchoranalysis.*:java.lang:java.io</noqualifier>
 				
