@@ -311,7 +311,7 @@
 
 				  <!-- apply a specific flavor of google-java-format -->
 				  <googleJavaFormat>
-					<version>21</version>
+					<version>1.26.0</version>
 					<style>AOSP</style>
 				  </googleJavaFormat>
 
