@@ -117,7 +117,7 @@
 			<native-lib-loader.version>2.5.0</native-lib-loader.version>
 			
 			<!-- Guava - https://github.com/google/guava -->
-			<guava.version>33.3.1-jre</guava.version>
+			<guava.version>33.3.1</guava.version>
 			
 			<!-- JUnit- https://junit.org/junit5/ -->
 			<junit.version>5.7.0</junit.version>
@@ -324,7 +324,7 @@
 			  <plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.6</version>
+				<version>0.8.13</version>
 				<executions>
 				  <execution>
 					<id>prepare-agent</id>
@@ -353,6 +353,13 @@
                     <configuration>
                         <source>21</source>
                         <target>21</target>
+					<annotationProcessorPaths>
+					<path>
+						<groupId>org.projectlombok</groupId>
+						<artifactId>lombok</artifactId>
+						<version>${lombok.version}</version>
+					</path>
+				</annotationProcessorPaths>						
                     </configuration>
                 </plugin>
                 
