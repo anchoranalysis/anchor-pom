@@ -87,6 +87,7 @@
 			
 			<!-- Commons Collections - https://commons.apache.org/proper/commons-collections/ -->
 			<commons-collections.version>3.2.2</commons-collections.version>
+			<commons-collections4.version>4.5.0-M2</commons-collections4.version>
 			
 			<!-- Commons Math - http://commons.apache.org/proper/commons-math/ -->
 			<commons-math3.version>3.6.1</commons-math3.version>
@@ -117,7 +118,7 @@
 			<native-lib-loader.version>2.5.0</native-lib-loader.version>
 			
 			<!-- Guava - https://github.com/google/guava -->
-			<guava.version>33.3.1</guava.version>
+			<guava.version>33.3.1-jre</guava.version>
 			
 			<!-- JUnit- https://junit.org/junit5/ -->
 			<junit.version>5.7.0</junit.version>
@@ -499,7 +500,7 @@
         
         <dependency>
 		    <groupId>org.junit.jupiter</groupId>
-		    <artifactId>junit-jupiter-engine</artifactId>
+		    <artifactId>junit-jupiter</artifactId>
 		    <version>${junit.version}</version>
 		    <scope>test</scope>
 		</dependency>
@@ -567,7 +568,17 @@
 			  <configuration>
 				<publishingServerId>central</publishingServerId>
 			  </configuration>
-		</plugin>				
+		</plugin>
+							
+		<plugin>
+			  <groupId>org.sonatype.central</groupId>
+			  <artifactId>central-publishing-maven-plugin</artifactId>
+			  <version>0.7.0</version>
+			  <extensions>true</extensions>
+			  <configuration>
+				<publishingServerId>central</publishingServerId>
+			  </configuration>
+		</plugin>		
 
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
