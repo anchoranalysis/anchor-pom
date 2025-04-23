@@ -92,6 +92,8 @@
 			<!-- Commons Math - http://commons.apache.org/proper/commons-math/ -->
 			<commons-math3.version>3.6.1</commons-math3.version>
 
+			<commons-configuration.version>1.10</commons-configuration.version>
+
 			<!-- SSJ: Stochastic Simulation in Java -->
 			<ssj.version>3.2.1</ssj.version>
 
@@ -442,44 +444,13 @@
 				</configuration>
 			</plugin>
 			
-			<!-- A workaround for an error caused in Eclipse by the delombok execution goal 
-			See post on https://github.com/rzwitserloot/lombok/issues/925
-			-->
-			 <plugin>
-                    <groupId>org.eclipse.m2e</groupId>
-                    <artifactId>lifecycle-mapping</artifactId>
-                    <version>1.0.0</version>
-                    <configuration>
-                        <lifecycleMappingMetadata>
-
-                            <pluginExecutions>
-                                <pluginExecution>
-
-                                    <pluginExecutionFilter>
-                                        <groupId>org.projectlombok</groupId>
-                                        <artifactId>lombok-maven-plugin</artifactId>
-                                        <versionRange>[1,)</versionRange>
-                                        <goals>
-                                            <goal>delombok</goal>
-                                        </goals>
-                                    </pluginExecutionFilter>
-                                    <action>
-                                        <ignore />
-                                    </action>
-                                </pluginExecution>
-
-                            </pluginExecutions>
-                        </lifecycleMappingMetadata>
-                    </configuration>
-                </plugin>
-			
 			<!-- Included to avoid GitHub Actions errors referincing older JARs -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>3.2.0</version>
 			</plugin>
-				
+						
 			</plugins>
 		</pluginManagement>
 				
