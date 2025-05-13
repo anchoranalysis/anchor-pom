@@ -170,13 +170,6 @@
 		<url>https://github.com/anchoranalysis/anchor-pom</url>
 		<tag>anchor-pom-0.0.16</tag>
 	</scm>
-	
-	<distributionManagement>
-		<snapshotRepository>
-			<id>central</id>
-			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
   
 	<reporting>
 		<plugins>
